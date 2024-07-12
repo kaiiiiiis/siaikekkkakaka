@@ -1,0 +1,330 @@
+.tab-wrap {
+	background: White;
+	box-shadow: 0 0 5px rgba(0,0,0,.1);
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	padding: 20px 5px 20px 5px;
+}
+
+.tab-label {
+	color: Gray;
+	cursor: pointer;
+	flex: 1;
+	font-weight: bold;
+	order: -1;
+	padding: 3px 6px;
+	position: relative;
+	text-align: center;
+	transition: cubic-bezier(0.4, 0, 0.2, 1) .2s;
+	user-select: none;
+	white-space: nowrap;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.tab-label:hover {
+	background: rgba(0, 191, 255,.1);
+}
+
+.tab-switch:checked + .tab-label {
+	color: DeepSkyBlue;
+}
+
+.tab-label::after {
+	background: DeepSkyBlue;
+	bottom: 0;
+	content: '';
+	display: block;
+	height: 3px;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	transform: translateX(100%);
+	transition: cubic-bezier(0.4, 0, 0.2, 1) .2s 80ms;
+	width: 100%;
+	z-index: 1;
+}
+
+.tab-switch:checked ~ .tab-label::after {
+	transform: translateX(-100%);
+}
+
+.tab-switch:checked + .tab-label::after {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.tab-content {
+	height:0;
+	opacity:0;
+	padding: 0 5px;
+	pointer-events:none;
+	transform: translateX(-30%);
+	transition: transform .3s 80ms, opacity .3s 80ms;
+	width: 100%;
+  
+}
+
+
+.tab-switch:checked ~ .tab-content {
+	transform: translateX(30%);
+}
+
+.tab-switch:checked + .tab-label + .tab-content {
+	height: auto;
+	opacity: 1;
+	order: 1;
+	pointer-events:auto;
+	transform: translateX(0);
+}
+
+.tab-wrap::after {
+	content: '';
+	height: 20px;
+	order: -1;
+	width: 100%;
+}
+
+.tab-switch {
+	display: none;
+}
+.menu-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #000000;
+  }
+  .menu-btn span,
+  .menu-btn span:before,
+  .menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+  }
+  .menu-btn span:before {
+    bottom: 8px;
+  }
+  .menu-btn span:after {
+    top: 8px;
+  }
+  #menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+  }
+  #menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+  }
+  #menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  #menu-btn-check {
+    display: none;
+  }
+  .menu-content {
+    width: 100%;
+    height: 100%;
+    
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: #70d4ff;
+  }
+  .menu-content ul {
+    padding: 70px 10px 0;
+  }
+  .menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+  }
+  .menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+  }
+  .menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+  }
+  .menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: #00c4da;
+    transition: all 0.5s;/*アニメーション設定*/
+  }
+  #menu-btn-check:checked ~ .menu-content {
+    left: 0;
+  
+  }
+  .b{
+     background-color: #000000;
+  }
+    /*メニューを画面内へ*/
+    .c{
+        background-color: rgb(0, 0, 0);
+        padding: 0;
+        margin: 0;
+        height: 70px;
+        width: auto;
+    }
+ 
+      .d{
+        width: 50px;
+        height: 40px; 
+        filter: invert(100%);
+        position: absolute;
+        top: 2%;
+        left: 1em;
+    }
+    body{
+        
+        font-family: "Noto Sans JP", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+    .title{
+        padding: 2px 0 2px 15px;
+        background-color: #5cb3f5 ;
+    }
+    .title p{
+        font-size: 25px;
+        font-family: "Noto Sans JP", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        font-style: normal;
+        color: #ffffff;
+    }
+    .siai{
+        font-size: 20px;
+        font-family: "Noto Sans JP", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        color: #ffffff;
+        padding: 5px 0 5px 5px;
+        background-color: #49a0e3;
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+    .s{
+        padding: 0 10px 0 10px;
+    }
+    .tuki{
+    font-weight: 700;
+        border-bottom: 2px solid black;
+    }
+    .rigth{
+        width: 80px;
+        height: auto;
+        padding: 0 0 0 10px;
+    } 
+    .left{
+      width: 80px;
+      height: auto;
+      padding: 0 10px 0 0;
+  
+    }
+    .suji{
+      padding: 20px;
+      font-size: 30px;
+    }
+    .scoree{
+        font-size: 35px;
+        margin: auto;
+        font-family: "Titillium Web", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+         
+        
+    }
+    .scoree table{
+        margin: auto;
+
+     
+    }
+    table td{
+     
+      text-align: center;
+    }
+    .score{
+        margin: 10px 20px;
+        border: 2px solid rgb(255, 196, 196);
+       
+    }
+   .aaa{
+
+      margin: 10px 20px 0 20px;
+      border: 2px solid rgb(255, 196, 196);
+  }
+  .qe{
+   
+    margin: auto;
+    font-size: 20px;
+  }
+  .qe{
+  
+    a,a:hover,a:visited{
+      color: inherit;
+  }
+  
+a{
+ 
+}
+ 
+  }
+   .i{
+    margin: 0 20px 10px 20px;
+    background-color: rgb(203, 203, 203);
+   }
+    @media screen and (min-width:720px){
+      .aa{
+        width: 33%;
+      }
+      .score{
+        width: 100%;
+        
+      }
+  .scoree{
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+  }
+    }
+    @media screen and (max-width:480px) {
+      .aa{
+        margin: 0px 20px;
+      }
+      .scoree img{
+        width: 75px;
+        height: 75px;
+      }
+    }
